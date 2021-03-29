@@ -33,7 +33,7 @@ public class ClientService {
 	@Transactional(readOnly = true)
 	public ClientDTO findById(Long id) {
 		Optional<Client> obj = repository.findById(id);
-		Client entity = obj.orElseThrow(() -> new EntityNotFoundException("Entity Not Found"));
+		Client entity = obj.orElseThrow(() -> new ResourceNotFoundException("Entity Not Found"));
 		return new ClientDTO(entity);
 	}
 
